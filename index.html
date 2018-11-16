@@ -1,0 +1,98 @@
+<!<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+
+    <svg width="0" height="0">
+                <defs>
+                  <clippath id="myClip">
+                    <circle cx="100" cy="100" r="40" />
+                    <circle cx="60" cy="60" r="40" />
+                  </clippath>
+                </defs>
+              </svg>
+
+
+    <style>
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: width 0.5s, height 0.5s;
+        }
+    </style>
+
+    <div id="container" style="width:100%; height:100%">
+        <div id="one" class="sizemeup" style="background: aqua; width:0px; height: 0px; ">
+            <div class="contents"></div>
+            <div id="two" class="sizemeup" style="background: red; width:0px; height: 0px; ">
+                <div class="contents"></div>
+                <div id="three" class="sizemeup" style="background: yellow; width:0px; height: 0px;">
+                    <div class="contents"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        let sizeupelems = document.querySelectorAll(".sizemeup");
+
+        let clickCounts = 0
+
+        sizeup = () => {
+
+            let h = sizeupelems[clickCounts].clientHeight
+            let w = sizeupelems[clickCounts].clientWidth
+            let currentContentsValues = document.querySelectorAll(".contents")
+
+            for (let i = 0; i < currentContentsValues.length; i++) {
+
+                currentContentsValues[i].innerHTML = "";
+            }
+
+            switch (clickCounts) {
+
+                case 0:
+                    sizeupelems[0].querySelector(".contents").innerHTML = "Hello"
+                    break;
+                case 1:
+                    sizeupelems[1].querySelector(".contents").innerHTML = "How Are You?"
+                    break;
+                case 2:
+                    sizeupelems[2].querySelector(".contents").innerHTML = "Ok, Bye"
+                    break;
+            }
+
+
+
+
+            sizeupelems[clickCounts].style.height = (window.innerHeight) + "px";
+            sizeupelems[clickCounts].style.width = (window.innerWidth) + "px";
+            // sizeupelems[1].style.clipPath = "circle(40% at center)"
+        }
+
+        document.addEventListener("click", (e) => {
+
+
+            if (clickCounts < sizeupelems.length) {
+                sizeup()
+                clickCounts++;
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>
