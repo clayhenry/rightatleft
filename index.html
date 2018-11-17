@@ -10,17 +10,7 @@
 
 </head>
 
-<body>
-
-    <svg width="0" height="0">
-                <defs>
-                  <clippath id="myClip">
-                    <circle cx="100" cy="100" r="40" />
-                    <circle cx="60" cy="60" r="40" />
-                  </clippath>
-                </defs>
-              </svg>
-
+<body style="overflow-x: hidden">
 
     <style>
         div {
@@ -29,9 +19,26 @@
             justify-content: center;
             transition: width 0.5s, height 0.5s;
         }
+
+        #container {
+
+            width:100%; 
+            height:100%;
+            position: fixed;
+
+       
+        }
+
+        .contents {
+            position: fixed
+        }
+
     </style>
 
-    <div id="container" style="width:100%; height:100%">
+    <div id="container">
+    
+        <div id="default" class="sizemeup" style="background: white; width:0px; height: 0px; ">
+            <div class="contents"></div>
         <div id="one" class="sizemeup" style="background: aqua; width:0px; height: 0px; ">
             <div class="contents"></div>
             <div id="two" class="sizemeup" style="background: red; width:0px; height: 0px; ">
@@ -40,57 +47,113 @@
                     <div class="contents"></div>
                 </div>
             </div>
+            </div>
+
 
         </div>
 
     </div>
+    <div style="height:8000px">
+        <br><br><br>
+    </div>
 
     <script>
         let sizeupelems = document.querySelectorAll(".sizemeup");
+        let container  = document.getElementById("container");
+        let currentContentsValues = document.querySelectorAll(".contents")
 
-        let clickCounts = 0
+        let instanceCounts = 0
+        let currentOffset = window.pageYOffset;
+        let = scrollDirection = "";
 
         sizeup = () => {
-
-            let h = sizeupelems[clickCounts].clientHeight
-            let w = sizeupelems[clickCounts].clientWidth
-            let currentContentsValues = document.querySelectorAll(".contents")
+            
+            let h = sizeupelems[instanceCounts].clientHeight
+            let w = sizeupelems[instanceCounts].clientWidth
+            
 
             for (let i = 0; i < currentContentsValues.length; i++) {
 
                 currentContentsValues[i].innerHTML = "";
             }
+                  
+            sizeupelems[instanceCounts].querySelector(".contents").innerHTML = "Hello " + instanceCounts
+            
 
-            switch (clickCounts) {
+            if(scrollDirection == "down"){ 
+                sizeupelems[instanceCounts].style.height = (window.innerHeight) + "px";
+                sizeupelems[instanceCounts].style.width = (window.innerWidth) + "px";
+                // sizeupelems[1].style.clipPath = "circle(40% at center)"
+         
+                
+            }  
+            
+            if(scrollDirection == "up"){ 
 
-                case 0:
-                    sizeupelems[0].querySelector(".contents").innerHTML = "Hello"
-                    break;
-                case 1:
-                    sizeupelems[1].querySelector(".contents").innerHTML = "How Are You?"
-                    break;
-                case 2:
-                    sizeupelems[2].querySelector(".contents").innerHTML = "Ok, Bye"
-                    break;
+                let downIndex = instanceCounts + 1;
+                    if(typeof(sizeupelems[downIndex]) != "undefined"){
+                        sizeupelems[downIndex].style.height =  "0px";
+                        sizeupelems[downIndex].style.width =  "0px";
+                        // sizeupelems[1].style.clipPath = "circle(40% at center)"
+                        
+                }
             }
+        } 
+        
+        sizeup();
 
 
+        document.addEventListener("scroll", (e) =>{
 
+            
+            let scroll = window.pageYOffset;
 
-            sizeupelems[clickCounts].style.height = (window.innerHeight) + "px";
-            sizeupelems[clickCounts].style.width = (window.innerWidth) + "px";
-            // sizeupelems[1].style.clipPath = "circle(40% at center)"
-        }
+                if(scroll <= 0 ){
+                    evcount = 0;
+                    instanceCounts = 0;
+                }
+                if(scroll > currentOffset){
+                  
+                    scrollDirection = "down";
+                } else {
+               
+                    scrollDirection = "up";
+                }
+                
+    
+            if (instanceCounts <= sizeupelems.length && window.pageYOffset < 4000) {
 
-        document.addEventListener("click", (e) => {
+        
+                currentOffset = window.pageYOffset;
+                container.style.position = "fixed"
+                container.style.top = 0;
 
+                if(currentOffset >= 0 &&   currentOffset <= 999 ){
+                        instanceCounts= 0;
+                    }
 
-            if (clickCounts < sizeupelems.length) {
+                if(currentOffset >= 1000 &&   currentOffset <= 1999 ){
+                    instanceCounts= 1;
+                }
+
+                if(currentOffset >= 2000 && currentOffset <= 2999  ){
+                    instanceCounts = 2;
+                }
+
+               if(currentOffset >= 3000){
+                    instanceCounts = 3;
+                    container.style.position = "absolute"
+                    container.style.top = window.pageYOffset + "px";
+                    currentContentsValues[3].style.position = "absolute"
+                }
+          
                 sizeup()
-                clickCounts++;
             }
+
+        
 
         })
+
     </script>
 
 </body>
