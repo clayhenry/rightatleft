@@ -17,7 +17,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: width 0.5s, height 0.5s;
+            transition: width 0.3s, height 0.3s;
         }
 
         #container {
@@ -30,62 +30,102 @@
         }
 
         .contents {
-            position: fixed
+            position: fixed;
+            width: 100%;
+            top: 0;
         }
 
+        .content {
+
+            width: 100%;
+            text-align: left;
+            background-color: aquamarine;
+            justify-content: normal;
+            position: absolute;
+        
+        }
+
+        .content.second{
+
+                color: white;
+     
+        }
+
+
+
+        @keyframes example {
+            from {background: red;}
+            to {background: yellow;}
+        }
+
+        /* The element to apply the animation to */
+        .animate1 {
+            background-color: red;
+            animation-name: example;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+
+
     </style>
+
+
+
+
 
     <div id="container">
     
         <div id="default" class="sizemeup" style="background: white; width:0px; height: 0px; ">
-            <div class="contents"></div>
+            <div class="contents" style="display:none">one</div>
         <div id="one" class="sizemeup" style="background: aqua; width:0px; height: 0px; ">
-            <div class="contents"></div>
+            <div class="contents"  style="display:none" ><div class="animate1">two</div></div>
             <div id="two" class="sizemeup" style="background: red; width:0px; height: 0px; ">
-                <div class="contents"></div>
+                <div class="contents"  style="display:none" >three</div>
                 <div id="three" class="sizemeup" style="background: yellow; width:0px; height: 0px;">
-                    <div class="contents"></div>
+                    <div class="contents" style="display:none" >four</div>
                 </div>
             </div>
             </div>
-
-
         </div>
-
     </div>
+
     <div style="height:8000px">
         <br><br><br>
     </div>
 
     <script>
+
+        //always start from top
+        setTimeout(function(){ window.scrollTo(0, 0)}, 0)
+
         let sizeupelems = document.querySelectorAll(".sizemeup");
         let container  = document.getElementById("container");
         let currentContentsValues = document.querySelectorAll(".contents")
-
+ 
+        let scrollEvents = 0;
         let instanceCounts = 0
         let currentOffset = window.pageYOffset;
-        let = scrollDirection = "";
+        let scrollDirection = "";
 
         sizeup = () => {
-            
+          
             let h = sizeupelems[instanceCounts].clientHeight
             let w = sizeupelems[instanceCounts].clientWidth
             
-
+            let contentCont = sizeupelems[instanceCounts].querySelector(".contents");
             for (let i = 0; i < currentContentsValues.length; i++) {
-
-                currentContentsValues[i].innerHTML = "";
+                currentContentsValues[i].style.display = "none";
             }
-                  
-            sizeupelems[instanceCounts].querySelector(".contents").innerHTML = "Hello " + instanceCounts
             
-
+            if(contentCont.style.display == "none"){
+                contentCont.style.display = "block"
+            }
+   
             if(scrollDirection == "down"){ 
                 sizeupelems[instanceCounts].style.height = (window.innerHeight) + "px";
                 sizeupelems[instanceCounts].style.width = (window.innerWidth) + "px";
                 // sizeupelems[1].style.clipPath = "circle(40% at center)"
-         
-                
             }  
             
             if(scrollDirection == "up"){ 
@@ -95,16 +135,14 @@
                         sizeupelems[downIndex].style.height =  "0px";
                         sizeupelems[downIndex].style.width =  "0px";
                         // sizeupelems[1].style.clipPath = "circle(40% at center)"
-                        
                 }
             }
+        
         } 
         
         sizeup();
 
-
         document.addEventListener("scroll", (e) =>{
-
             
             let scroll = window.pageYOffset;
 
@@ -113,34 +151,39 @@
                     instanceCounts = 0;
                 }
                 if(scroll > currentOffset){
-                  
                     scrollDirection = "down";
+                    scrollEvents++;
                 } else {
-               
                     scrollDirection = "up";
+                    scrollEvents--;
                 }
                 
     
             if (instanceCounts <= sizeupelems.length && window.pageYOffset < 4000) {
 
-        
                 currentOffset = window.pageYOffset;
                 container.style.position = "fixed"
                 container.style.top = 0;
 
-                if(currentOffset >= 0 &&   currentOffset <= 999 ){
+                //first frame
+                if(currentOffset >= 0 &&   currentOffset <= 50 ){
                         instanceCounts= 0;
                     }
 
-                if(currentOffset >= 1000 &&   currentOffset <= 1999 ){
+                //second frame
+                if(currentOffset >= 51 &&   currentOffset <= 1999 ){
+
+                    currentContentsValues[1].style.top = (window.pageYOffset /20) + "px";
                     instanceCounts= 1;
                 }
-
+                //third frame
                 if(currentOffset >= 2000 && currentOffset <= 2999  ){
+                    currentContentsValues[2].style.top = (window.pageYOffset /20) + "px";
                     instanceCounts = 2;
                 }
 
-               if(currentOffset >= 3000){
+                //last frame
+                if(currentOffset >= 3000){
                     instanceCounts = 3;
                     container.style.position = "absolute"
                     container.style.top = window.pageYOffset + "px";
@@ -149,6 +192,9 @@
           
                 sizeup()
             }
+
+
+      
 
         
 
