@@ -68,13 +68,25 @@
         }
 
 
+        #img {
+
+            
+            transform-origin: center center 0px; 
+            transition: all 0.2s ease 0s;
+
+        }
+
+
 
     </style>
 
 
 
 
-<div class="animateMe">Animate me</div>
+<div id="cont" style="background-color: aqua; width:150px" >
+    <div id="img"><img src="image.jpg"  style="width:150px" >   </div> 
+
+</div>
 
 
 
@@ -88,10 +100,94 @@
     <script>
 
     
+    let img = document.getElementById("img");
+    let cont = document.getElementById("cont");
+
+    let neg ="+";
+    
+   
+    let deg = 0;
+  
+    var oldX = 0;
+    var oldY = 0;
+
+
+// document.addEventListener("mouseleave", (event)=>{
+//     img.style.transform = `rotate3d(0, 0, 0, 0deg)`;
+
+// })
+
+    document.addEventListener("mousemove", (event)=>{
         
-                    let firstAnimation =  document.querySelector(".animateMe");
-                        firstAnimation.classList.add("animate1");
-                      
+     
+        var x = (Math.floor(event.clientX / 30 ));     // Get the horizontal coordinate
+        var y = (Math.floor(event.clientY / 20));   // Get the vertical coordinate
+
+            console.log(event.clientX )
+    
+        if(event.offsetX > 400 &&  event.offsetX > 500){
+            deg++ 
+             
+        } else {
+
+            deg--;
+           
+        }
+
+          
+      
+
+        if((cont.clientWidth / 2) >  event.offsetX){
+            neg = "-";
+
+        
+        
+        } else {
+            neg = "";
+           // deg++;
+        }
+
+       if(deg >= 60 && deg >=70){
+
+            deg = 60
+        }
+
+        if(deg >= -60 && deg <= -70){
+
+            deg = -60
+        }
+     
+
+            if(oldX < event.offsetX) {
+                
+                deg++
+            } else {
+                 deg--
+            }
+
+
+      
+
+        if(oldY < event.pageY){
+
+           // console.log("down")
+        } else {
+
+          //  console.log("up")
+        }
+
+        oldX = event.offsetX;
+        oldY = event.pageY;
+     
+        let rot = `rotate3d(0.${y}, -0.${x}, 0, ${x}deg)`;
+        // console.log( event.offsetX)
+
+        img.style.transform = rot;
+        var coor = "X coords: " + x + ", Y coords: " + y;
+ 
+
+    })
+
                     
 
         

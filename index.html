@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -25,6 +25,11 @@
             left: 0;
             top: 0;
             position: fixed;
+        }
+        
+        #cont {
+            position: absolute;
+            top: 6780px;
         }
         
         .contents {
@@ -78,15 +83,18 @@
 
                     <div id="three" class="sizemeup" style="background: yellow; width:100%; height: 0px; ">
                         <div class="contents" style="display:none">four</div>
+
                     </div>
+
 
                 </div>
             </div>
         </div>
     </div>
+    <div id="cont">hjkdhfkjsdhfkjhsdjk</div>
 
     <div style="height:8000px">
-        <br><br><br>
+
     </div>
 
     <script>
@@ -98,6 +106,7 @@
         let sizeupelems = document.querySelectorAll(".sizemeup");
         let container = document.getElementById("container");
         let currentContentsValues = document.querySelectorAll(".contents")
+        let contunueContent = document.querySelector("#cont");
 
         let scrollEvents = 0;
         let instanceCounts = 0
@@ -140,10 +149,8 @@
                         sizeupelems[downIndex + 1].style.height = "0px"
                     };
                     // sizeupelems[1].style.clipPath = "circle(40% at center)"
-
                 }
             }
-
         }
 
         sizeup();
@@ -164,8 +171,8 @@
                 scrollEvents--;
             }
 
-
-            if (instanceCounts <= sizeupelems.length && window.pageYOffset < 4000) {
+            console.log(currentOffset);
+            if (instanceCounts <= sizeupelems.length && window.pageYOffset < 6000) {
 
                 currentOffset = window.pageYOffset;
                 container.style.position = "fixed"
@@ -185,13 +192,13 @@
                     instanceCounts = 1;
                 }
                 //third frame
-                if (currentOffset >= 2000 && currentOffset <= 3500) {
+                if (currentOffset >= 2000 && currentOffset <= 3700) {
                     currentContentsValues[2].style.top = (window.pageYOffset / 20) + "px";
                     instanceCounts = 2;
                 }
 
                 //last frame
-                if (currentOffset >= 3501) {
+                if (currentOffset >= 3701) {
                     currentContentsValues[3].style.top = (window.pageYOffset / 20) + "px";
                     instanceCounts = 3;
                     container.style.position = "absolute"
@@ -201,11 +208,6 @@
 
                 sizeup()
             }
-
-
-
-
-
 
         })
     </script>
