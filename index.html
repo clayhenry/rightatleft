@@ -69,7 +69,7 @@
             animation-fill-mode: forwards;
         }
 
-               #img {
+               #img, #img2 {
         
         transform-origin: center center 0px; 
         transition: all 0.2s ease 0s;
@@ -83,8 +83,10 @@
             <div class="sizemeup" style="background: #161616; width:100%; height: 20px; bottom: 0; ">
                 <div class="contents" style="position: relative">
                     <div class=""> 
-                            <div style=" width:200px; height: 200px; overflow: hidden;" >
-                        <div id="img"><img src="image.jpg"  style="width:100%" >  Hello </div> </div>
+                    <div  style=" width:200px; height: 200px;" >
+                        <div id="img" style="width:100%; " ><img src="image.jpg"  style="width:100%; position: absolute;" >  Hello </div> 
+                        <div id="img2" style="width:100%;"> <img src="image.jpg" style="width:50%; position: absolute; right: -20px; top:-30px">  Hello </div> 
+                    </div>
                         </div>
                 </div>
 
@@ -230,12 +232,22 @@
     let deg = 0;
     let direction = 0;
     let middle = 0;
-    let neg = "";
+    let updown = "";
+    let leftright = "";
     let pos = "";
+    let rot = "";
 
 
         let img = document.getElementById("img");
+        let img2 =  document.getElementById("img2");
 
+
+        document.addEventListener("mouseleave", ()=>{
+
+        img.style.transform = `rotate3d(1, 1, 0, -20deg)`
+        img2.style.transform =  `rotate3d(1, 1, 0, -15deg)`
+        
+        })
 
         document.addEventListener("mousemove", (event)=>{
         
@@ -252,19 +264,18 @@
            
             direction = 1;
             console.log("UD")
-            
+           
 
 
         } if((oldX <= event.pageX || oldX >= event.pageX ) && (oldY == event.pageY) ) {
            direction = 0;
+    
            console.log("LR")
         }
 
 
      oldX = event.offsetX;
         oldY = event.pageY;
-
-
 
         if(direction == 1){
             middle = Math.floor(cHeight/2);
@@ -279,21 +290,18 @@
 
             c = middle - deg;   
             deg = middle + c;
-            neg ="+";
-        
+            updown ="+";
     
         } else {
-            neg ="-";
-         
+            updown ="-";
         }
     
-
-     
-        let rot = `rotate3d(${v}, ${neg}${v}, 0,${deg}deg)`;
+        rot = `rotate3d(${v}, ${updown}${v}, 0, ${deg}deg)`;
         // console.log( event.offsetX)
 
         img.style.transform = rot;
-        var coor = "X coords: " + x + ", Y coords: " + y;
+        img2.style.transform =  `rotate3d(${v}, ${updown}${v}, 0, ${deg - 5}deg)`
+       
  
 
     })
