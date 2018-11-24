@@ -156,7 +156,7 @@
             <div class="sizemeup" style="background: #161616; width:100%; height: 150px; bottom: 0;  overflow:hidden;">
                 <div class="contents into" style="position: relative;">
 
-                    <div class="subContent" style="padding:10px; margin:15%;"> <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                    <div class="subContent" style="padding:10px; "> <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                         <div  style=" width:200px; height: 150px;" >
                             <div id="img" style="width:100%; " ><img src="image.jpg"  style="width:100%; position: absolute;" >  Hello </div> 
                             <div id="img2" style="width:100%;"> <img src="image.jpg" style="width:50%; position: absolute; right: -20px; top:-30px">  Hello </div> 
@@ -166,7 +166,7 @@
 
                 <div class="sizemeup" style="background: #e7e7e5; width:100%; height: 0px;">
                     <div class="contents"  style="position: relative;">
-                        <div class="subContent"  style="padding:10px; margin:15%;"> <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                        <div class="subContent"  style="padding:10px;"> <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                             <div  style=" width:200px; height: 150px;" >
                          
                             </div>
@@ -175,7 +175,13 @@
                     </div>
 
                     <div id="three" class="sizemeup" style="background: #9f884f; width:100%; height: 0px; ">
-                        <div class="contents" style="position: relative">four</div>
+                        <div class="contents" style="position: relative">
+                            <div class="subContent"  style="padding:10px;"> <h1 style="color: white" >Last </h1>
+                                <div  style=" width:200px; height: 150px;" >
+                             
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -206,6 +212,7 @@
         let scrollEvents = 0;
         let instanceCounts = 0
         let currentOffset = window.pageYOffset;
+        let marginTop = 0;
    
 
         sizeup = () => {
@@ -215,23 +222,12 @@
 
             let contentCont = sizeupelems[instanceCounts].querySelector(".contents");
 
-            // for (let i = 0; i < currentContentsValues.length; i++) {
-            //     currentContentsValues[i].style.display = "none";
-            // }
-
-            // if (contentCont.style.display == "none") {
-            //     contentCont.style.display = "block"
-
-            // }
-
             if (scrollDirection == "down") {
                 sizeupelems[instanceCounts].style.height = (window.innerHeight) + "px";
 
                 if (typeof sizeupelems[instanceCounts + 1] != "undefined") {
                     sizeupelems[instanceCounts + 1].style.height = (150) + "px";
                 }
-                // sizeupelems[instanceCounts].style.width = (window.innerWidth) + "px";
-                // sizeupelems[1].style.clipPath = "circle(40% at center)"
             }
 
             if (scrollDirection == "up") {
@@ -243,7 +239,6 @@
                     if (typeof sizeupelems[downIndex + 1] != "undefined") {
                         sizeupelems[downIndex + 1].style.height = "0px"
                     };
-                    // sizeupelems[1].style.clipPath = "circle(40% at center)"
                 }
             }
         }
@@ -261,9 +256,11 @@
             if (scroll > currentOffset) {
                 scrollDirection = "down";
                 scrollEvents++;
+                marginTop = (window.pageYOffset-- /10 )
             } else {
                 scrollDirection = "up";
                 scrollEvents--;
+                marginTop = window.pageYOffset /10 
             }
             if (instanceCounts <= sizeupelems.length && window.pageYOffset < 6000) {
 
@@ -284,19 +281,24 @@
                 //second frame
                 if (currentOffset >= 199 && currentOffset <= 1999) {
 
-                    currentContentsValues[1].querySelector(".subContent").style.marginTop = ( window.pageYOffset / 10) + "px";
-
+        
+                    currentContentsValues[1].querySelector(".subContent").style.marginTop = - marginTop + "px";
+                
+                
                     instanceCounts = 1;
                 }
                 //third frame
                 if (currentOffset >= 2000 && currentOffset <= 3700) {
-                    currentContentsValues[2].querySelector(".subContent").style.marginTop = ( window.pageYOffset /10 )  + "px";
+                    
+                  
+                    currentContentsValues[2].querySelector(".subContent").style.marginTop = - marginTop + "px";
                     instanceCounts = 2;
                 }
 
                 //last frame
                 if (currentOffset >= 3701) {
-                    //currentContentsValues[3].style.top = (- window.pageYOffset / 10) + "px";
+                   
+                    currentContentsValues[3].querySelector(".subContent").style.marginTop = - marginTop + "px";
                     instanceCounts = 3;
                     container.style.position = "absolute"
                     container.style.top = window.pageYOffset + "px";
@@ -305,7 +307,7 @@
 
                 sizeup()
             }
-
+          
         })
 
 
