@@ -50,7 +50,7 @@
             position: fixed;
             width: 100%;
             top: 0;
-            height: 100%;
+            height: 85%;
             overflow: hidden;
         }
         
@@ -77,13 +77,17 @@
             animation-fill-mode: forwards;
         }
 
-               #img, #img2 {
+               #bacgimg {
         
         transform-origin: center center 0px; 
         transition: all 0.2s ease 0s;
     }
 
     #intro1 {margin:15%;max-width: 800px;min-width: 200px;position: relative;top: 10p;}
+    .subContent {
+        padding: 20px 150px;
+        transition: all 0.8s;
+    }
     
     
     
@@ -153,20 +157,25 @@
 </div>
             </div>
 
-            <div class="sizemeup" style="background: #161616; width:100%; height: 150px; bottom: 0;  overflow:hidden;">
+            <div class="sizemeup" style="background:#161616; width:100%; height: 150px; bottom: 0;  overflow:hidden;">
                 <div class="contents into" style="position: relative;">
 
-                    <div class="subContent" style="padding:10px; "> <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
-                        <div  style=" width:200px; height: 150px;" >
-                            <div id="img" style="width:100%; " ><img src="image.jpg"  style="width:100%; position: absolute;" >  Hello </div> 
-                            <div id="img2" style="width:100%;"> <img src="image.jpg" style="width:50%; position: absolute; right: -20px; top:-30px">  Hello </div> 
-                        </div>
+                    <div class="subContent" style="margin-top: 50px; color: white; position: relative; z-index: 9;"> 
+                        <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
+                    
                     </div>
+
+                    <div id="bacgimg" style="background: #ff0055; position: absolute;       border-radius: 5px;   margin-left: 8%; top:500px;   padding: 60px 0; "><img src="bacg1.png" style="width:100%; height: 10
+                    0%;" ></div>
+
                 </div>
 
-                <div class="sizemeup" style="background: #e7e7e5; width:100%; height: 0px;">
-                    <div class="contents"  style="position: relative;">
-                        <div class="subContent"  style="padding:10px;"> <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                <div class="sizemeup" style="background: #e7e7e5; width:100%; height: 0px; z-index: 9;">
+                    <div class="contents"  style="position: relative; ">
+                        <div class="subContent"  style="padding: 150px; position: relative; z-index: 9;" > 
+                            <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                             <div  style=" width:200px; height: 150px;" >
                          
                             </div>
@@ -174,9 +183,11 @@
                     
                     </div>
 
-                    <div id="three" class="sizemeup" style="background: #9f884f; width:100%; height: 0px; ">
+                    <div id="three" class="sizemeup" style="background: #2c1b5d; width:100%; height: 0px; z-index: 9; ">
                         <div class="contents" style="position: relative">
-                            <div class="subContent"  style="padding:10px;"> <h1 style="color: white" >Last </h1>
+                            <div class="subContent"  style="padding: 150px; position: relative; z-index: 9;" > 
+                                <h1 style="color: white" >THREE Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                                 <div  style=" width:200px; height: 150px;" >
                              
                                 </div>
@@ -224,10 +235,12 @@
 
             if (scrollDirection == "down") {
                 sizeupelems[instanceCounts].style.height = (window.innerHeight) + "px";
-
+              
                 if (typeof sizeupelems[instanceCounts + 1] != "undefined") {
                     sizeupelems[instanceCounts + 1].style.height = (150) + "px";
+            
                 }
+                
             }
 
             if (scrollDirection == "up") {
@@ -236,8 +249,10 @@
 
                 if (typeof(sizeupelems[downIndex]) != "undefined") {
                     sizeupelems[downIndex].style.height = "150px";
+                
                     if (typeof sizeupelems[downIndex + 1] != "undefined") {
                         sizeupelems[downIndex + 1].style.height = "0px"
+                        
                     };
                 }
             }
@@ -246,7 +261,12 @@
         sizeup();
 
         document.addEventListener("scroll", (e) => {
-
+     
+            currentContentsValues[1].querySelector("#bacgimg").style.marginTop = - (window.pageYOffset / 20) - 100 + "px";
+          
+            // currentContentsValues[1].querySelector(".subContent").style.marginTop = - window.pageYOffset / 20 + "px";
+            // currentContentsValues[2].querySelector(".subContent").style.marginTop = - (window.pageYOffset / 20 - 100 )  + "px";
+            // currentContentsValues[3].querySelector(".subContent").style.marginTop = - (window.pageYOffset / 20 - 200 )+ "px";
             let scroll = window.pageYOffset;
 
             if (scroll <= 0) {
@@ -256,11 +276,11 @@
             if (scroll > currentOffset) {
                 scrollDirection = "down";
                 scrollEvents++;
-                marginTop = (window.pageYOffset /10 )
+                marginTop ++
             } else {
                 scrollDirection = "up";
                 scrollEvents--;
-                marginTop = window.pageYOffset /10 
+                marginTop--
             }
             if (instanceCounts <= sizeupelems.length && window.pageYOffset < 6000) {
 
@@ -274,36 +294,32 @@
 
                 //first frame
                 if (currentOffset >= 80 && currentOffset <= 200) {
+                  
                     instanceCounts = 0;
-
                 }
 
                 //second frame
                 if (currentOffset >= 199 && currentOffset <= 1999) {
-
-        
-                    currentContentsValues[1].querySelector(".subContent").style.marginTop = - marginTop + "px";
-                
-                
+             
                     instanceCounts = 1;
                 }
                 //third frame
                 if (currentOffset >= 2000 && currentOffset <= 3700) {
-                    
-                  
-                    currentContentsValues[2].querySelector(".subContent").style.marginTop = - marginTop + "px";
+       
                     instanceCounts = 2;
                 }
 
                 //last frame
                 if (currentOffset >= 3701) {
-                   
-                    currentContentsValues[3].querySelector(".subContent").style.marginTop = - marginTop + "px";
+           
                     instanceCounts = 3;
                     container.style.position = "absolute"
                     container.style.top = window.pageYOffset + "px";
                     currentContentsValues[3].style.position = "absolute"
+
                 }
+
+            
 
                 sizeup()
             }
@@ -327,23 +343,23 @@
     let rot = "";
 
 
-        let img = document.getElementById("img");
-        let img2 =  document.getElementById("img2");
+        let img = document.getElementById("bacgimg");
+   
 
 
-        document.addEventListener("mouseleave", ()=>{
+        // document.addEventListener("mouseleave", ()=>{
 
-        img.style.transform = `rotate3d(1, 1, 0, -20deg)`
-        img2.style.transform =  `rotate3d(1, 1, 0, -15deg)`
+        // img.style.transform = `rotate3d(1, 1, 0, -20deg)`
+     
         
-        })
+        // })
 
         document.addEventListener("mousemove", (event)=>{
         
        
      
         var x = (Math.floor(event.clientX / 30 )); 
-        var cWidth = window.innerWidth / 30    
+        var cWidth = window.innerWidth / 60    
         var y = (Math.floor(event.clientY / 20)); 
         var cHeight = window.innerHeight / 30
    
@@ -385,11 +401,11 @@
             updown ="-";
         }
     
-        rot = `rotate3d(${v}, ${updown}${v}, 0, ${deg}deg)`;
+        rot = `rotate3d(${v}, ${updown}${v}, 0, ${deg - 10}deg)`;
         // console.log( event.offsetX)
 
-        img.style.transform = rot;
-        img2.style.transform =  `rotate3d(${v}, ${updown}${v}, 0, ${deg - 5}deg)`
+        // img.style.transform = rot;
+       
 
     })
 
