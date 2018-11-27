@@ -162,7 +162,7 @@
 
                     <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
 
-                        <div id="bacgimg" style="background: #ff0055;display: inline-block; margin: 10%; width: 80%; padding:0 5%">
+                        <div class="bacgimg" style="background: #ff0055;display: inline-block; margin: 7%; width: 80%; padding:0 5%">
                             <div>
                                 <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
@@ -176,7 +176,7 @@
                     <div class="contents"  style="position: relative; ">
                         <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
 
-                            <div id="bacgimg" style="background: #d6a108;  display: inline-block; margin: 10%; width: 80%; padding:0 5%">
+                            <div class="bacgimg" style="background: #d6a108;  display: inline-block; margin: 7%; width: 80%; padding:0 5%">
                                 <div>
                                     <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
@@ -191,7 +191,7 @@
                         <div class="contents" style="position: relative">
                             <div class="subContent" style=" padding: 65px; color: black; position: relative; z-index: 9;"> 
 
-                                <div id="bacgimg" style="background: white;display: inline-block; margin: 10%; width: 80%; padding:0 5%">
+                                <div class="bacgimg" style="background: white;display: inline-block; margin: 7%; width: 80%; padding:0 5%">
                                     <div>
                                         <h1 style="color: black; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
@@ -270,9 +270,9 @@
 
         document.addEventListener("scroll", (e) => {
      
-            currentContentsValues[1].querySelector("#bacgimg").style.marginTop = - (window.pageYOffset / 20) + 80  + "px";
-            currentContentsValues[2].querySelector("#bacgimg").style.marginTop = - (window.pageYOffset / 20) + 150  + "px";
-            currentContentsValues[3].querySelector("#bacgimg").style.marginTop = - (window.pageYOffset / 20) + 210  + "px";
+            currentContentsValues[1].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 80  + "px";
+            currentContentsValues[2].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 150  + "px";
+            currentContentsValues[3].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 210  + "px";
           
             // currentContentsValues[1].querySelector(".subContent").style.marginTop = - window.pageYOffset / 20 + "px";
             // currentContentsValues[2].querySelector(".subContent").style.marginTop = - (window.pageYOffset / 20 - 100 )  + "px";
