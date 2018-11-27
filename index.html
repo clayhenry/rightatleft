@@ -151,13 +151,13 @@
             <div class="contents">
                 <div id="intro1">
                     <div id="h1-intro1"><h1>The standard Lorem Ipsum passage</h1></div>
-                    <div id="h1-intro2"><h1> used since the 1500s</h1></div>
+                    <div id="h1-intro2"><h1> used since the 800s</h1></div>
 
     <div id="hp-intro1"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
 </div>
             </div>
 
-            <div class="sizemeup" style="background:#161616; width:100%; height: 150px; bottom: 0;  overflow:hidden;">
+            <div class="sizemeup" style="background:#161616; width:100%; height: 80px; bottom: 0;  overflow:hidden;">
                 <div class="contents into" style="position: relative;">
 
                     <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
@@ -245,7 +245,7 @@
                 sizeupelems[instanceCounts].style.height = (window.innerHeight) + "px";
               
                 if (typeof sizeupelems[instanceCounts + 1] != "undefined") {
-                    sizeupelems[instanceCounts + 1].style.height = (150) + "px";
+                    sizeupelems[instanceCounts + 1].style.height = (80) + "px";
             
                 }
                 
@@ -256,7 +256,7 @@
                 let downIndex = instanceCounts + 1;
 
                 if (typeof(sizeupelems[downIndex]) != "undefined") {
-                    sizeupelems[downIndex].style.height = "150px";
+                    sizeupelems[downIndex].style.height = "80px";
                 
                     if (typeof sizeupelems[downIndex + 1] != "undefined") {
                         sizeupelems[downIndex + 1].style.height = "0px"
@@ -271,7 +271,7 @@
         document.addEventListener("scroll", (e) => {
      
             currentContentsValues[1].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 80  + "px";
-            currentContentsValues[2].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 150  + "px";
+            currentContentsValues[2].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 80  + "px";
             currentContentsValues[3].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 210  + "px";
           
             // currentContentsValues[1].querySelector(".subContent").style.marginTop = - window.pageYOffset / 20 + "px";
