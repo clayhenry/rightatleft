@@ -85,7 +85,7 @@
 
     #intro1 {margin:15%;max-width: 800px;min-width: 200px;position: relative;top: 10p;}
     .subContent {
-        padding: 20px 150px;
+    
         transition: all 0.8s;
     }
     
@@ -160,24 +160,28 @@
             <div class="sizemeup" style="background:#161616; width:100%; height: 150px; bottom: 0;  overflow:hidden;">
                 <div class="contents into" style="position: relative;">
 
-                    <div class="subContent" style="margin-top: 50px; color: white; position: relative; z-index: 9;"> 
-                        <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
-                    
+                    <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
+
+                        <div id="bacgimg" style="background: #ff0055;display: inline-block; margin: 10%; width: 80%; padding:0 5%">
+                            <div>
+                                <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                            <img src="bacg1.png" style="" >
+                        </div>
                     </div>
-
-                    <div id="bacgimg" style="background: #ff0055; position: absolute;       border-radius: 5px;   margin-left: 8%; top:500px;   padding: 60px 0; "><img src="bacg1.png" style="width:100%; height: 10
-                    0%;" ></div>
-
                 </div>
 
-                <div class="sizemeup" style="background: #e7e7e5; width:100%; height: 0px; z-index: 9;">
+                <div class="sizemeup" style="background: #d4d4ce; width:100%; height: 0px; z-index: 9;">
                     <div class="contents"  style="position: relative; ">
-                        <div class="subContent"  style="padding: 150px; position: relative; z-index: 9;" > 
-                            <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            <div  style=" width:200px; height: 150px;" >
-                         
+                        <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
+
+                            <div id="bacgimg" style="background: #d6a108;display: inline-block; margin: 10%; width: 80%; padding:0 5%">
+                                <div>
+                                    <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                                <img src="bacg1.png" style="" >
                             </div>
                         </div>
                     
@@ -185,11 +189,14 @@
 
                     <div id="three" class="sizemeup" style="background: #2c1b5d; width:100%; height: 0px; z-index: 9; ">
                         <div class="contents" style="position: relative">
-                            <div class="subContent"  style="padding: 150px; position: relative; z-index: 9;" > 
-                                <h1 style="color: white" >THREE Sed do eiusmod tempor incididunt ut labore et dolore </h1>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                <div  style=" width:200px; height: 150px;" >
-                             
+                            <div class="subContent" style=" padding: 65px; color: black; position: relative; z-index: 9;"> 
+
+                                <div id="bacgimg" style="background: white;display: inline-block; margin: 10%; width: 80%; padding:0 5%">
+                                    <div>
+                                        <h1 style="color: black; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
+                                    </div>
+                                    <img src="bacg1.png" style="" >
                                 </div>
                             </div>
                         </div>
@@ -232,6 +239,7 @@
             let w = sizeupelems[instanceCounts].clientWidth
 
             let contentCont = sizeupelems[instanceCounts].querySelector(".contents");
+            sizeupelems[3].style.height = "0px"
 
             if (scrollDirection == "down") {
                 sizeupelems[instanceCounts].style.height = (window.innerHeight) + "px";
@@ -262,7 +270,9 @@
 
         document.addEventListener("scroll", (e) => {
      
-            currentContentsValues[1].querySelector("#bacgimg").style.marginTop = - (window.pageYOffset / 20) - 100 + "px";
+            currentContentsValues[1].querySelector("#bacgimg").style.marginTop = - (window.pageYOffset / 20) + 80  + "px";
+            currentContentsValues[2].querySelector("#bacgimg").style.marginTop = - (window.pageYOffset / 20) + 150  + "px";
+            currentContentsValues[3].querySelector("#bacgimg").style.marginTop = - (window.pageYOffset / 20) + 210  + "px";
           
             // currentContentsValues[1].querySelector(".subContent").style.marginTop = - window.pageYOffset / 20 + "px";
             // currentContentsValues[2].querySelector(".subContent").style.marginTop = - (window.pageYOffset / 20 - 100 )  + "px";
