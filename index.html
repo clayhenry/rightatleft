@@ -50,7 +50,7 @@
             position: fixed;
             width: 100%;
             top: 0;
-            height: 85%;
+            /* height: 85%; */
             overflow: hidden;
         }
         
@@ -77,9 +77,9 @@
             animation-fill-mode: forwards;
         }
 
-               #bacgimg {
-        
-        transform-origin: center center 0px; 
+        .bacgimg {
+        height: 550px;
+        transform-origin: center center 0px;
         transition: all 0.2s ease 0s;
     }
 
@@ -87,6 +87,10 @@
     .subContent {
     
         transition: all 0.8s;
+    }
+
+    .animateImage {
+        transition: all 1s ease 0s;
     }
     
     
@@ -162,13 +166,16 @@
 
                     <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
 
-                        <div class="bacgimg" style="background: #ff0055;display: inline-block; margin: 7%; width: 80%; padding:0 5%">
+                        <div class="bacgimg" style="background: #ff0055;display: inline-block; width: 90%; width: 90%; padding:0 5% ">
                             <div>
                                 <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
+                                <span onclick="readMore(1)" >Read More</span>
+                                
                             </div>
-                            <img src="bacg1.png" style="" >
+                            <img src="bacg1.png" class="animateImage" >
                         </div>
+                        <div class="more" style="float: right;">Some More info here</div>
                     </div>
                 </div>
 
@@ -176,12 +183,12 @@
                     <div class="contents"  style="position: relative; ">
                         <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
 
-                            <div class="bacgimg" style="background: #d6a108;  display: inline-block; margin: 7%; width: 80%; padding:0 5%">
+                            <div class="bacgimg" style="background: #d6a108;  display: inline-block; width: 90%; padding:0 5%">
                                 <div>
                                     <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
                                 </div>
-                                <img src="bacg1.png" style="" >
+                                <img src="bacg1.png" class="animateImage">
                             </div>
                         </div>
                     
@@ -191,12 +198,13 @@
                         <div class="contents" style="position: relative">
                             <div class="subContent" style=" padding: 65px; color: black; position: relative; z-index: 9;"> 
 
-                                <div class="bacgimg" style="background: white;display: inline-block; margin: 7%; width: 80%; padding:0 5%">
+                                <div class="bacgimg" style="background: white;display: inline-block; width: 90%; padding:0 5%">
+                                    <div class="more"></div>
                                     <div>
                                         <h1 style="color: black; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
                                     </div>
-                                    <img src="bacg1.png" style="" >
+                                    <img src="bacg1.png" class="animateImage">
                                 </div>
                             </div>
                         </div>
@@ -232,7 +240,9 @@
         let currentOffset = window.pageYOffset;
         let marginTop = 0;
    
-
+        readMore = (index) =>{
+            currentContentsValues[1].querySelector(".bacgimg").style.marginTop=  "-500px"             
+        }
         sizeup = () => {
 
             let h = sizeupelems[instanceCounts].clientHeight
@@ -243,35 +253,47 @@
 
             if (scrollDirection == "down") {
                 sizeupelems[instanceCounts].style.height = (window.innerHeight) + "px";
-              
                 if (typeof sizeupelems[instanceCounts + 1] != "undefined") {
                     sizeupelems[instanceCounts + 1].style.height = (80) + "px";
             
                 }
-                
+                for(i = 1; i<= 3; i++ ){
+                      if(instanceCounts == i){
+                        currentContentsValues[i].querySelector(".animateImage").style.marginTop = "-40px";
+                    } 
+                }
             }
-
+          
             if (scrollDirection == "up") {
+           
 
                 let downIndex = instanceCounts + 1;
 
+                    for(i = 1; i<= 3; i++ ){
+                      if(instanceCounts == i){
+                        currentContentsValues[i].querySelector(".animateImage").style.marginTop = "0px";
+                    } 
+                }
+            
                 if (typeof(sizeupelems[downIndex]) != "undefined") {
                     sizeupelems[downIndex].style.height = "80px";
-                
+                    
                     if (typeof sizeupelems[downIndex + 1] != "undefined") {
                         sizeupelems[downIndex + 1].style.height = "0px"
+                    
                         
                     };
                 }
             }
         }
 
+        
         sizeup();
 
         document.addEventListener("scroll", (e) => {
      
-            currentContentsValues[1].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 80  + "px";
-            currentContentsValues[2].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 80  + "px";
+            currentContentsValues[1].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 40  + "px";
+            currentContentsValues[2].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 100  + "px";
             currentContentsValues[3].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 210  + "px";
           
             // currentContentsValues[1].querySelector(".subContent").style.marginTop = - window.pageYOffset / 20 + "px";
@@ -304,24 +326,25 @@
 
                 //first frame
                 if (currentOffset >= 80 && currentOffset <= 200) {
-                  
+                   
+                    
                     instanceCounts = 0;
                 }
 
                 //second frame
                 if (currentOffset >= 199 && currentOffset <= 1999) {
-             
+                
                     instanceCounts = 1;
                 }
                 //third frame
                 if (currentOffset >= 2000 && currentOffset <= 3700) {
-       
+              
                     instanceCounts = 2;
                 }
 
                 //last frame
                 if (currentOffset >= 3701) {
-           
+                  
                     instanceCounts = 3;
                     container.style.position = "absolute"
                     container.style.top = window.pageYOffset + "px";
