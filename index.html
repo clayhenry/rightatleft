@@ -17,7 +17,7 @@
         h1 {
             font-family: 'Barlow', sans-serif;
             font-weight: bold;
-            font-size: 48px;
+            font-size: 35px;
             padding: 0;
             margin: 0;
         }
@@ -81,6 +81,9 @@
         height: 550px;
         transform-origin: center center 0px;
         transition: all 0.2s ease 0s;
+        /* border-top: 5px solid white; */
+        /* border-bottom: 5px solid white; */
+        /* background-color: white; */
     }
 
     #intro1 {margin:15%;max-width: 800px;min-width: 200px;position: relative;top: 10p;}
@@ -91,6 +94,11 @@
 
     .animateImage {
         transition: all 1s ease 0s;
+    }
+
+    .logo {
+        position:fixed;
+        z-index: 999;
     }
     
     
@@ -149,8 +157,9 @@
 
 
     </style>
-
+ <div class="logo">Logo</div>
     <div id="container">
+       
         <div id="default" class="sizemeup" style="background: white; width:100%; height: 0px; overflow: visible">
             <div class="contents">
                 <div id="intro1">
@@ -161,12 +170,12 @@
 </div>
             </div>
 
-            <div class="sizemeup" style="background:#161616; width:100%; height: 80px; bottom: 0;  overflow:hidden;">
+            <div class="sizemeup" style="background:linear-gradient(45deg, #da655f 43%,#ff70c3 100%); width:100%; height: 80px; bottom: 0;  overflow:hidden;">
                 <div class="contents into" style="position: relative;">
 
                     <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
 
-                        <div class="bacgimg" style="background: #ff0055;display: inline-block; width: 90%; width: 90%; padding:0 5% ">
+                        <div class="bacgimg" style="display: inline-block; width: 90%; width: 90%; padding:0 5% ">
                             <div>
                                 <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
@@ -179,11 +188,11 @@
                     </div>
                 </div>
 
-                <div class="sizemeup" style="background: #d4d4ce; width:100%; height: 0px; z-index: 9;">
+                <div class="sizemeup" style="background: linear-gradient(45deg, #da9d5f 44%,#e5e164 100%); width:100%; height: 0px; z-index: 9;">
                     <div class="contents"  style="position: relative; ">
                         <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
 
-                            <div class="bacgimg" style="background: #d6a108;  display: inline-block; width: 90%; padding:0 5%">
+                            <div class="bacgimg" style=" display: inline-block; width: 90%; padding:0 5%">
                                 <div>
                                     <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
@@ -194,11 +203,13 @@
                     
                     </div>
 
-                    <div id="three" class="sizemeup" style="background: #086ca8; width:100%; height: 0px; z-index: 9; ">
+                    <div id="three" class="sizemeup" style="background:  linear-gradient(45deg, #5fc3da 44%,#68edaf 100%); width:100%; height: 0px; z-index: 9;
+                    
+                    ; width:100%; height: 0px; z-index: 9; ">
                         <div class="contents" style="position: relative">
                             <div class="subContent" style=" padding: 65px; color: black; position: relative; z-index: 9;"> 
 
-                                <div class="bacgimg" style="background: white;display: inline-block; width: 90%; padding:0 5%">
+                                <div class="bacgimg" style="display: inline-block; width: 90%; padding:0 5%">
                                     <div class="more"></div>
                                     <div>
                                         <h1 style="color: black; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
@@ -233,6 +244,7 @@
         let currentContentsValues = document.querySelectorAll(".contents")
     
         let contunueContent = document.querySelector("#cont");
+        let logo = document.querySelector("#cont");
         let intoContainer = document.getElementById("intro1");
         let scrollDirection = ""
         let scrollEvents = 0;
@@ -288,7 +300,7 @@
         }
 
         
-        sizeup();
+        //sizeup();
 
         document.addEventListener("scroll", (e) => {
      
@@ -388,29 +400,22 @@
         // })
 
         document.addEventListener("mousemove", (event)=>{
-        
-       
      
         var x = (Math.floor(event.clientX / 30 )); 
         var cWidth = window.innerWidth / 60    
         var y = (Math.floor(event.clientY / 20)); 
-        var cHeight = window.innerHeight / 30
-   
-            
+        var cHeight = window.innerHeight / 30      
 
         if( (oldY <= event.pageY  || oldY >= event.pageY) && (oldX == event.pageX) ){
            
             direction = 1;
             console.log("UD")
-           
-
 
         } if((oldX <= event.pageX || oldX >= event.pageX ) && (oldY == event.pageY) ) {
            direction = 0;
     
            console.log("LR")
         }
-
 
      oldX = event.offsetX;
         oldY = event.pageY;
