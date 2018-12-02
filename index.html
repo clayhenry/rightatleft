@@ -23,9 +23,9 @@
         }
 
         p {
-
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', sans-serif;    
         }
+
         .sizemeup {
             transition: width 0.4s, height 0.4s;
             position: absolute;
@@ -81,12 +81,18 @@
         height: 550px;
         transform-origin: center center 0px;
         transition: all 0.2s ease 0s;
+        margin-top: 10%;
         /* border-top: 5px solid white; */
         /* border-bottom: 5px solid white; */
         /* background-color: white; */
     }
 
-    #intro1 {margin:15%;max-width: 800px;min-width: 200px;position: relative;top: 10p;}
+    #intro1 {
+        margin:15%;
+        max-width: 800px;
+        min-width: 800px;
+        position: relative;
+        }
     .subContent {
     
         transition: all 0.8s;
@@ -122,6 +128,7 @@
         clip-path: inset(0% 0 0 0);
         background-color: white;
         position: relative;
+ 
     }
 
     #h1-intro2 {
@@ -135,7 +142,13 @@
          position: relative;
          animation-name: intotext;
          animation-duration: 0.5s;
-    }
+         font-size: 50px;
+         background: linear-gradient(135deg, #1e2a96 0%,#a1d372 99%);
+         -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+         background-clip: text;
+
+            }
     #h1-intro2 h1 {
         top: -48px;
         position: relative;
@@ -143,6 +156,12 @@
         animation-duration: 0.5s;
         animation-delay: 0.2s;
         animation-fill-mode: forwards;
+        font-size: 50px;
+
+          background: linear-gradient(135deg, #1e2a96 0%,#a1d372 60%);
+         -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+         background-clip: text;
   }
 
   #hp-intro1 {
@@ -156,6 +175,8 @@
 
 
 
+
+
     </style>
  <div class="logo">Logo</div>
     <div id="container">
@@ -163,8 +184,8 @@
         <div id="default" class="sizemeup" style="background: white; width:100%; height: 0px; overflow: visible">
             <div class="contents">
                 <div id="intro1">
-                    <div id="h1-intro1"><h1>The standard Lorem Ipsum passage</h1></div>
-                    <div id="h1-intro2"><h1> used since the 800s</h1></div>
+                    <div id="h1-intro1"><h1>Hi, I Develop MVP Digital Products</h1></div>
+                    <div id="h1-intro2"><h1>For Strtups and Established Business </h1></div>
 
     <div id="hp-intro1"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
 </div>
@@ -175,7 +196,7 @@
 
                     <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
 
-                        <div class="bacgimg" style="display: inline-block; width: 90%; width: 90%; padding:0 5% ">
+                        <div class="bacgimg" style="display: inline-block; width: 90%; width: 90%; padding:0 5%;">
                             
                                 <div style="float: left"> 
                                         <img src="bacg1.png" class="animateImage" >
@@ -318,9 +339,9 @@
 
         document.addEventListener("scroll", (e) => {
      
-            currentContentsValues[1].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 40  + "px";
-            currentContentsValues[2].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 100  + "px";
-            currentContentsValues[3].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 210  + "px";
+            currentContentsValues[1].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 150  + "px";
+            currentContentsValues[2].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 270  + "px";
+            currentContentsValues[3].querySelector(".bacgimg").style.marginTop = - (window.pageYOffset / 20) + 310  + "px";
           
             // currentContentsValues[1].querySelector(".subContent").style.marginTop = - window.pageYOffset / 20 + "px";
             // currentContentsValues[2].querySelector(".subContent").style.marginTop = - (window.pageYOffset / 20 - 100 )  + "px";
