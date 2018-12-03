@@ -185,7 +185,7 @@
             <div class="contents">
                 <div id="intro1">
                     <div id="h1-intro1"><h1>Hi, I Develop MVP Digital Products</h1></div>
-                    <div id="h1-intro2"><h1>For Strtups and Established Business </h1></div>
+                    <div id="h1-intro2"><h1>By Creating </h1></div>
 
     <div id="hp-intro1"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
 </div>
@@ -423,12 +423,11 @@
     let rot = "";
 
 
-        let img = document.getElementById("bacgimg");
+        let img = document.getElementsByClassName("bacgimg")[0];
    
 
 
         // document.addEventListener("mouseleave", ()=>{
-
         // img.style.transform = `rotate3d(1, 1, 0, -20deg)`
      
         
@@ -477,7 +476,7 @@
         rot = `rotate3d(${v}, ${updown}${v}, 0, ${deg - 10}deg)`;
         // console.log( event.offsetX)
 
-        // img.style.transform = rot;
+       //  img.style.transform = rot;
        
 
     })
