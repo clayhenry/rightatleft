@@ -14,6 +14,36 @@
 
     <style>
 
+
+
+
+
+   .animateImage {
+        transition: all 1s ease 0s;
+        width:400px;
+        
+        }
+
+
+    .textblk {
+
+        float: left; width:100%
+    }    
+
+           #intro1 {
+        margin:15%;
+        max-width: 800px;
+        min-width: 400px;
+        position: relative;
+        }
+
+     .subContent {
+
+        transition: all 0.8s;
+        padding: 15px; color: white; position: relative; z-index: 9
+    }
+
+
         h1 {
             font-family: 'Barlow', sans-serif;
             font-weight: bold;
@@ -81,26 +111,14 @@
         height: 550px;
         transform-origin: center center 0px;
         transition: all 0.2s ease 0s;
-        margin-top: 10%;
+        /* margin-top: 10%;
+        width: 90%;
+        padding:0 5% */
         /* border-top: 5px solid white; */
         /* border-bottom: 5px solid white; */
         /* background-color: white; */
     }
 
-    #intro1 {
-        margin:15%;
-        max-width: 800px;
-        min-width: 800px;
-        position: relative;
-        }
-    .subContent {
-    
-        transition: all 0.8s;
-    }
-
-    .animateImage {
-        transition: all 1s ease 0s;
-    }
 
     .logo {
         position:fixed;
@@ -124,12 +142,7 @@
             from {transform: rotate3d(1, -1, 0, 30deg); opacity: 0 }
             to {  transform: rotate3d(0, 0, 0, 0deg); opacity: 1  }
         }
-    #h1-intro1 {
-        clip-path: inset(0% 0 0 0);
-        background-color: white;
-        position: relative;
- 
-    }
+
 
     #h1-intro2 {
         clip-path: inset(0% 0 0 0);
@@ -175,7 +188,63 @@
 
 
 
+@media screen and (min-width:300px) {
+    .animateImage {
+        transition: all 1s ease 0s;
+        width: 300px;
+    }
 
+     .subContent {
+
+        transition: all 0.8s;
+        padding: 25px; color: white; position: relative; z-index: 9
+    }
+
+}
+
+
+
+
+@media screen and (min-width:800px) {
+    .animateImage {
+        transition: all 1s ease 0s;
+        width: 500px;
+    }
+
+    
+    .textblk{
+        width:30%;
+    }
+
+     .subContent {
+
+        transition: all 0.8s;
+        padding: 25px; color: white; position: relative; z-index: 9
+        }
+
+}
+
+
+@media screen and (min-width:1160px) {
+    .animateImage {
+        transition: all 1s ease 0s;
+        width: 650px;
+    }
+
+        .textblk{
+        width:40%;
+    }
+         .subContent {
+
+            transition: all 0.8s;
+            padding:30px 65px 0 0; color: white; 
+            position: relative; 
+            z-index: 9;
+            margin-left: 4%;
+            }
+}
+
+ 
 
     </style>
  <div class="logo">Logo</div>
@@ -194,15 +263,15 @@
             <div class="sizemeup" style="background:linear-gradient(45deg, #da655f 43%,#ff70c3 100%); width:100%; height: 80px; bottom: 0;  overflow:hidden;">
                 <div class="contents into" style="position: relative;">
 
-                    <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
+                    <div class="subContent"> 
 
-                        <div class="bacgimg" style="display: inline-block; width: 90%; width: 90%; padding:0 5%;">
+                        <div class="bacgimg">
                             
                                 <div style="float: left"> 
                                         <img src="bacg1.png" class="animateImage" >
                                     </div>
                             
-                            <div style="float: left; width:40%">
+                            <div class="textblk" >
                                 <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
                                 <span onclick="readMore(1)" >Read More</span>
@@ -216,15 +285,15 @@
 
                 <div class="sizemeup" style="background: linear-gradient(45deg, #da9d5f 44%,#e5e164 100%); width:100%; height: 0px; z-index: 9;">
                     <div class="contents"  style="position: relative; ">
-                        <div class="subContent" style=" padding: 65px; color: white; position: relative; z-index: 9;"> 
+                        <div class="subContent"> 
 
-                            <div class="bacgimg" style=" display: inline-block; width: 90%; padding:0 5%">
+                            <div class="bacgimg">
                                 
                                     <div style="float: left"> 
                                             <img src="bacg1.png" class="animateImage" >
                                         </div>
                                 
-                                <div style="float: left; width:40%">
+                                <div class="textblk">
                                     <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
                                 </div>
@@ -238,15 +307,15 @@
                     
                     ; width:100%; height: 0px; z-index: 9; ">
                         <div class="contents" style="position: relative">
-                            <div class="subContent" style=" padding: 65px; color: black; position: relative; z-index: 9;"> 
+                            <div class="subContent"> 
 
-                                <div class="bacgimg" style="display: inline-block; width: 90%; padding:0 5%">
+                                <div class="bacgimg">
                                     <div class="more"></div>
                                     
                                     <div style="float: left">
                                             <img src="bacg1.png" class="animateImage">
                                     </div>
-                                    <div style="float: left; width:40%">
+                                    <div class="textblk">
                                         <h1 style="color: black; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
                                     </div>
@@ -370,7 +439,7 @@
 
                 intoContainer.style.top = - window.pageYOffset / 5 + "px"
                 
-
+                    console.log(currentOffset)
                 //first frame
                 if (currentOffset >= 80 && currentOffset <= 200) {
                    
@@ -384,13 +453,13 @@
                     instanceCounts = 1;
                 }
                 //third frame
-                if (currentOffset >= 2000 && currentOffset <= 3700) {
+                if (currentOffset >= 2000 && currentOffset <= 4000) {
               
                     instanceCounts = 2;
                 }
 
                 //last frame
-                if (currentOffset >= 3701) {
+                if (currentOffset >= 4001) {
                   
                     instanceCounts = 3;
                     container.style.position = "absolute"
