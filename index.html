@@ -32,7 +32,7 @@
 
            #intro1 {
         margin:15%;
-        max-width: 800px;
+        max-width: 900px;
         min-width: 400px;
         position: relative;
         }
@@ -186,12 +186,19 @@
       animation-fill-mode: forwards;
   }
 
+  #hp-intro1 img {
+      float: left;
+      border-radius: 100%;
+      width:150px;
+      margin-right: 20px;
+  }
+
 
 
 @media screen and (min-width:300px) {
     .animateImage {
         transition: all 1s ease 0s;
-        width: 300px;
+        width: 100%
     }
 
      .subContent {
@@ -208,7 +215,7 @@
 @media screen and (min-width:800px) {
     .animateImage {
         transition: all 1s ease 0s;
-        width: 500px;
+        width: 550px;
     }
 
     
@@ -224,11 +231,23 @@
 
 }
 
-
 @media screen and (min-width:1160px) {
+
     .animateImage {
         transition: all 1s ease 0s;
         width: 650px;
+    }
+
+            .textblk{
+        width:40%;
+    }
+}
+
+
+@media screen and (min-width:1400px) {
+    .animateImage {
+        transition: all 1s ease 0s;
+        width: 700px;
     }
 
         .textblk{
@@ -240,46 +259,50 @@
             padding:30px 65px 0 0; color: white; 
             position: relative; 
             z-index: 9;
-            margin-left: 4%;
+            margin-left: 10%;
             }
 }
 
  
 
     </style>
- <div class="logo">Logo</div>
+ <!-- <div class="logo">Logo</div> -->
     <div id="container">
        
         <div id="default" class="sizemeup" style="background: white; width:100%; height: 0px; overflow: visible">
             <div class="contents">
                 <div id="intro1">
-                    <div id="h1-intro1"><h1>Hi, I Develop MVP Digital Products</h1></div>
-                    <div id="h1-intro2"><h1>By Creating </h1></div>
+                    <div id="h1-intro1"><h1>Hi, I'm Pawel Urbanski. </h1></div>
+                    <div id="h1-intro2"><h1>I build awesome digital products</h1></div>
 
-    <div id="hp-intro1"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-</div>
+                    <div id="hp-intro1">
+                        <img src="pawelurbanski.jpg" >
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
             </div>
+
 
             <div class="sizemeup" style="background:linear-gradient(45deg, #da655f 43%,#ff70c3 100%); width:100%; height: 80px; bottom: 0;  overflow:hidden;">
                 <div class="contents into" style="position: relative;">
 
                     <div class="subContent"> 
 
-                        <div class="bacgimg">
+                        <div class="bacgimg" style="margin-top: 60px;">
                             
                                 <div style="float: left"> 
                                         <img src="bacg1.png" class="animateImage" >
                                     </div>
                             
                             <div class="textblk" >
-                                <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                                <h1 style="color: white" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
-                                <span onclick="readMore(1)" >Read More</span>
+                                <!-- <span onclick="readMore(1)" >Read More</span> -->
                                 
                             </div>
                  
                         </div>
-                        <div class="more" style="float: right;">Some More info here</div>
+                        <!-- <div class="more" style="float: right;">Some More info here </div> -->
                     </div>
                 </div>
 
@@ -290,11 +313,11 @@
                             <div class="bacgimg">
                                 
                                     <div style="float: left"> 
-                                            <img src="bacg1.png" class="animateImage" >
+                                            <img src="bacg2.png" class="animateImage" >
                                         </div>
                                 
                                 <div class="textblk">
-                                    <h1 style="color: white; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                                    <h1 style="color: white;" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
                                 </div>
                                
@@ -303,9 +326,7 @@
                     
                     </div>
 
-                    <div id="three" class="sizemeup" style="background:  linear-gradient(45deg, #5fc3da 44%,#68edaf 100%); width:100%; height: 0px; z-index: 9;
-                    
-                    ; width:100%; height: 0px; z-index: 9; ">
+                    <div id="three" class="sizemeup" style="background:  linear-gradient(45deg, #5fc3da 44%,#68edaf 100%); width:100%; height: 0px; z-index: 9;">
                         <div class="contents" style="position: relative">
                             <div class="subContent"> 
 
@@ -313,31 +334,60 @@
                                     <div class="more"></div>
                                     
                                     <div style="float: left">
-                                            <img src="bacg1.png" class="animateImage">
+                                            <img src="bacg3.png" class="animateImage">
                                     </div>
                                     <div class="textblk">
-                                        <h1 style="color: black; padding:2%" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                                        <h1 style="color: black;" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
                                     </div>
                                    
                                 </div>
                             </div>
+                         
                         </div>
-
                     </div>
 
 
+                 
                 </div>
+                 
             </div>
+
+
+            <div id="four" class="sizemeup" style="background: white; width:100%; height: 0px; z-index: 9; ">
+                    <div class="contents" style="position: relative; margin: 5% 15%;
+                    max-width: 900px;
+                    min-width: 400px;">
+                        <div class="subContent"> 
+
+                            <div class="bacgimg">
+                                <div class="more"></div>
+                         
+                                    <h1 style="color: black;" >Sed do eiusmod tempor incididunt ut labore et dolore </h1>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. A galley of type and scrambled it to make a type specimen book.</p>
+                              
+                               
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+        
         </div>
+       
     </div>
 
 
-    <div style="height:8000px">
 
+
+
+    <div style="height:7000px">
+                      
     </div>
 
-    <script>
+
+
+<script>
         //always start from top
         setTimeout(function() {
             window.scrollTo(0, 0)
